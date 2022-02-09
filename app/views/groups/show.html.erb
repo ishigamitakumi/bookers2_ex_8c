@@ -23,6 +23,11 @@
               <%= link_to 'Join this group', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
             <% end %>
           </td>
+          <td>
+            <% if @group.is_owned_by?(current_user) %>
+            <%= link_to '削除',group_all_destroy_path(@group),method: :delete, class: "btn btn-sm btn-danger" %>
+            <% end %>
+          </td>
         </tr>
       </table>
     </div>
